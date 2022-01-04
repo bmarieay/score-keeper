@@ -4,26 +4,37 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Pingpong Score Keeper Widget</title>
 </head>
 <body>
-    <p>Ping Pong Score Keeper</p>
-    <h1><span id="p1ScoreDisplay">0</span> to <span id="p2ScoreDisplay">0</span></h1>
-    <p>Use the buttons below to keep score</p>
-    <form action="">
-        <label for="winning-score">Playing To</label>
-        <select name="" id="winning-score">
-            <option value="5">5</option>
-            <option value="6">6</option>
-            <option value="7">7</option>
-            <option value="8">8</option>
-            <option value="9">9</option>
-            <option value="10">10</option>
-        </select>
-    </form>
-    <button id="p1Button">+1 Player 1</button>
-    <button id="p2Button">+1 Player 2</button>
-    <button id="reset">Reset</button>
+    <article class="widget">
+        <figure>
+            <img src="imgs/pingpong.jpg" alt="a group of people playing ping pong">
+            <figcaption class = "indent" id="description">Ping Pong Score Keeper</p>
+        </figure>
+        <section>
+            <h1 class = "indent"><span id="p1ScoreDisplay">0</span> to <span id="p2ScoreDisplay">0</span></h1>
+            <p class = "indent">Use the buttons below to keep score</p>
+            <form action="" class = "indent">
+                <label for="winning-score">Playing To</label>
+                <select name="" id="winning-score">
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                </select>
+            </form>
+            <div id="controls">
+                <button id="p1Button">+1 Player 1</button>
+                <button id="p2Button">+1 Player 2</button>
+                <button id="reset">Reset</button>
+            </div>
+        </section>
+    </article>
 
     <script src="app.js"></script>
 </body>
