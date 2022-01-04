@@ -1,51 +1,64 @@
-//buttons
 const p1Button = document.querySelector('#p1Button');
 const p2Button = document.querySelector('#p2Button');
 const resetButton = document.querySelector('#reset');
-//scores
-const p1Score = document.querySelector('#p1Score');
-const p2Score = document.querySelector('#p2Score');
-//score updates
-let playerOneScore = 0;
-let playerTwoScore = 0;
-let winningScore = 3;
-let isDone = false;
 
-//events
-p1Button.addEventListener('click', function(){  
-     
-    let playerOneDisplay = p1Score.innerText;
-    if((playerOneDisplay < winningScore) && !isDone){
-        p1Score.innerText = updateScore(playerOneScore, p1Score.innerText);
-        alert(playerOneScore)
+const p1ScoreDisplay = document.querySelector('#p1ScoreDisplay');
+const p2ScoreDisplay = document.querySelector('#p2ScoreDisplay');
+
+const winningScoreVal = document.querySelector('#winning-score');
+
+let winningScore = parseInt(winningScoreVal.value);
+let isGameOver = false;
+let p1Score = 0;
+let p2Score = 0;
+
+// function updateScore(playerScore, playerScoreDisplay){
+//     if((playerScore !== winningScore) && (!isGameOver)){
+//         console.log(playerScoreDisplay)
+//         playerScore++;
+//         playerScoreDisplay.textContent = playerScore;
+//         console.log(playerScoreDisplay.textContent, playerScore)
+//         if(playerScore === winningScore){
+//             isGameOver = true;
+//         }
+//     }
+// }
+
+p1Button.addEventListener('click', function(){
+    if((p1Score !== winningScore) && (!isGameOver)){
+        p1Score++;
+        p1ScoreDisplay.textContent = p1Score;
+        if(p1Score === winningScore){
+            isGameOver = true;
+        }
     }
-    if(p1Score.innerText === winningScore){
-        console.log('done')
-        isDone = true;
+    // updateScore(p1Score, p1ScoreDisplay);
+})
+    
+p2Button.addEventListener('click', function(){
+    if((p2Score !== winningScore) && (!isGameOver)){
+        p2Score++;
+        p2ScoreDisplay.textContent = p2Score;
+        if(p2Score === winningScore){
+            isGameOver = true;
+        }
     }
 })
 
-p2Button.addEventListener('click', function(){   
-    let playerTwoDisplay = p2Score.innerText;
-    if((playerTwoDisplay < winningScore)  && !isDone){
-        p2Score.innerText = updateScore(playerTwoScore, p2Score.innerText);
+
+
+winningScoreVal.addEventListener('input', function(e){
+    winningScore = parseInt(winningScoreVal.value);
+    if(winningScore <= p1Score || winningScore <= p2Score){
+        isGameOver = true;
     }
-    if(p2Score.innerText === winningScore){
-        alert('done')
-        isDone = true;
-    }
+    winningScore = parseInt(winningScoreVal.value);
 })
-
-function updateScore(playerScore, scoreUpdate){
-    console.log(`in function ${scoreUpdate}`)
-    playerScore = scoreUpdate;
-    playerScore++;
-
-    scoreUpdate = playerScore;
-    return scoreUpdate;
-}
 
 resetButton.addEventListener('click', function(){
-    p1Score.innerText = 0;
-    p2Score.innerText = 0;
+    p1ScoreDisplay.textContent = 0;
+    p2ScoreDisplay.textContent = 0;
+    p1Score = 0;
+    p2Score = 0;
+    isGameOver = false;
 })
