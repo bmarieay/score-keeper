@@ -73,7 +73,7 @@ label {
 }
 
 .disabled{
-    color:#789;
+    background-color:#789;
 }
 
 #controls{
@@ -91,11 +91,11 @@ label {
     transition: all .25s;
 }
 
-#controls button:hover{
+.button:hover{
     background-color: #ada96e;
 }
 
-#controls button:active {
+.button:active {
     background-color: #ada96e;
     box-shadow: 0 5px #666;
     transform: translateY(-4px);

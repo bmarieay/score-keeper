@@ -12,27 +12,16 @@ let isGameOver = false;
 let p1Score = 0;
 let p2Score = 0;
 
-// function updateScore(playerScore, playerScoreDisplay){
-//     if((playerScore !== winningScore) && (!isGameOver)){
-//         console.log(playerScoreDisplay)
-//         playerScore++;
-//         playerScoreDisplay.textContent = playerScore;
-//         console.log(playerScoreDisplay.textContent, playerScore)
-//         if(playerScore === winningScore){
-//             isGameOver = true;
-//         }
-//     }
-// }
-
 p1Button.addEventListener('click', function(){
     if((p1Score !== winningScore) && (!isGameOver)){
         p1Score++;
         p1ScoreDisplay.textContent = p1Score;
         if(p1Score === winningScore){
             isGameOver = true;
+            p1ScoreDisplay.classList.add('green');
+            p2ScoreDisplay.classList.add('red');
         }
     }
-    // updateScore(p1Score, p1ScoreDisplay);
 })
     
 p2Button.addEventListener('click', function(){
@@ -41,11 +30,11 @@ p2Button.addEventListener('click', function(){
         p2ScoreDisplay.textContent = p2Score;
         if(p2Score === winningScore){
             isGameOver = true;
+            p1ScoreDisplay.classList.add('red');
+            p2ScoreDisplay.classList.add('green');
         }
     }
 })
-
-
 
 winningScoreVal.addEventListener('input', function(e){
     winningScore = parseInt(winningScoreVal.value);
@@ -61,4 +50,6 @@ resetButton.addEventListener('click', function(){
     p1Score = 0;
     p2Score = 0;
     isGameOver = false;
+    p1ScoreDisplay.classList.remove(...p1ScoreDisplay.classList);
+    p2ScoreDisplay.classList.remove(...p2ScoreDisplay.classList);
 })
