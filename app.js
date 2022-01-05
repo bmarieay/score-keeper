@@ -29,6 +29,15 @@ function updateScores(player, opponent){
     }
 }
 
+function reset(){
+    isGameOver = false;
+    for(let p of [p1, p2]){
+        p.display.textContent = 0;
+        p.score = 0;
+        p.display.classList.remove(...p.display.classList)
+    }
+}
+
 p1Button.addEventListener('click', function(){
     updateScores(p1, p2);
 })
@@ -37,21 +46,10 @@ p2Button.addEventListener('click', function(){
     updateScores(p2, p1);
 })
 
+resetButton.addEventListener('click', reset);
+
 winningScoreVal.addEventListener('input', function(e){
     winningScore = parseInt(winningScoreVal.value);
-    if(winningScore <= p1Score || winningScore <= p2Score){
-        isGameOver = true;
-    }
-    winningScore = parseInt(winningScoreVal.value);
-})
-
-resetButton.addEventListener('click', function(){
-    p1ScoreDisplay.textContent = 0;
-    p2ScoreDisplay.textContent = 0;
-    p1Score = 0;
-    p2Score = 0;
-    isGameOver = false;
-    p1ScoreDisplay.classList.remove(...p1ScoreDisplay.classList);
-    p2ScoreDisplay.classList.remove(...p2ScoreDisplay.classList);
+    reset();
 })
 
