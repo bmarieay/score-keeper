@@ -1,39 +1,40 @@
-const p1Button = document.querySelector('#p1Button');
-const p2Button = document.querySelector('#p2Button');
+const p1 = {
+    score   :   0,
+    button  :   document.querySelector('#p1Button'),
+    display :   document.querySelector('#p1ScoreDisplay')
+}
+
+const p2 = {
+    score   :   0,
+    button  :   document.querySelector('#p2Button'),
+    display :   document.querySelector('#p2ScoreDisplay')
+}
+
+
 const resetButton = document.querySelector('#reset');
-
-const p1ScoreDisplay = document.querySelector('#p1ScoreDisplay');
-const p2ScoreDisplay = document.querySelector('#p2ScoreDisplay');
-
-const winningScoreVal = document.querySelector('#winning-score');
-
+const winningScoreVal = document.querySelector('#playto');
 let winningScore = parseInt(winningScoreVal.value);
 let isGameOver = false;
-let p1Score = 0;
-let p2Score = 0;
+
+
+function updateScores(player, opponent){
+    if((player.score !== winningScore) && (!isGameOver)){
+        player.score++;
+        player.display.textContent = player.score;
+        if(player.score === winningScore){
+            isGameOver = true;
+            player.display.classList.add('green');
+            opponent.display.classList.add('red');
+        }
+    }
+}
 
 p1Button.addEventListener('click', function(){
-    if((p1Score !== winningScore) && (!isGameOver)){
-        p1Score++;
-        p1ScoreDisplay.textContent = p1Score;
-        if(p1Score === winningScore){
-            isGameOver = true;
-            p1ScoreDisplay.classList.add('green');
-            p2ScoreDisplay.classList.add('red');
-        }
-    }
+    updateScores(p1, p2);
 })
-    
+
 p2Button.addEventListener('click', function(){
-    if((p2Score !== winningScore) && (!isGameOver)){
-        p2Score++;
-        p2ScoreDisplay.textContent = p2Score;
-        if(p2Score === winningScore){
-            isGameOver = true;
-            p1ScoreDisplay.classList.add('red');
-            p2ScoreDisplay.classList.add('green');
-        }
-    }
+    updateScores(p2, p1);
 })
 
 winningScoreVal.addEventListener('input', function(e){
@@ -53,3 +54,4 @@ resetButton.addEventListener('click', function(){
     p1ScoreDisplay.classList.remove(...p1ScoreDisplay.classList);
     p2ScoreDisplay.classList.remove(...p2ScoreDisplay.classList);
 })
+
