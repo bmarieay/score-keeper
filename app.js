@@ -10,6 +10,9 @@ const p2 = {
     display :   document.querySelector('#p2ScoreDisplay')
 }
 
+const registerButton = document.querySelector('#register');
+const promptSection = document.querySelector('#prompt');
+const gameSection = document.querySelector('.widget');
 
 const resetButton = document.querySelector('#reset');
 const winningScoreVal = document.querySelector('#playto');
@@ -56,4 +59,10 @@ winningScoreVal.addEventListener('input', function(e){
     reset();
 })
 
+
+registerButton.addEventListener('click', function(e){
+    e.preventDefault();
+    promptSection.classList.toggle('hide');
+    gameSection.classList.toggle('show');
+})
 

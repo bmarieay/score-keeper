@@ -54,6 +54,11 @@ label {
 }
 
 .widget{
+    display: none;
+}
+
+
+.widget, #prompt{
     width: 80%;
     max-width: 800px;
     align-self: center;
@@ -70,6 +75,14 @@ label {
 
 .green{
     color: #006400;
+}
+
+.hide{
+    display: none;
+}
+
+.show{
+    display: block;
 }
 
 .button:disabled{

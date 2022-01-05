@@ -9,6 +9,18 @@
     <title>Pingpong Score Keeper Widget</title>
 </head>
 <body>
+    <section id="prompt">
+        <p>Please enter the name of the players:</p>
+        <form action="/game">
+            <label for="p1Name">Player 1:</label>
+            <input type="text" name="p1Name" id="p1Name">
+            <label for="p2Name">Player 2:</label>
+            <input type="text" name="p2Name" id="p2Name">
+            <label for="p3Name">Player 3:</label>
+            <input type="text" name="p3Name" id="p3Name">
+            <button id="register">Submit</button>
+        </form>
+    </section>
     <article class="widget">
         <figure>
             <img src="imgs/pingpong.jpg" alt="a group of people playing ping pong">
