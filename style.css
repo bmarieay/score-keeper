@@ -10,7 +10,6 @@ html{
 body{
     margin: 0;
     display: flex;
-    border: 2px solid black;
     font-family: 'Poppins', sans-serif;
     justify-content: center;
     min-height: 100vh;
@@ -55,7 +54,8 @@ label {
 }
 
 .widget{
-    width: 40%;
+    width: 80%;
+    max-width: 800px;
     align-self: center;
     font-size: 1.5rem;
 }
@@ -107,5 +107,19 @@ label {
 
 .button-reset{
     background-color: #b33737;
+}
+
+@media(max-width: 430px){
+    #controls{
+        flex-wrap: wrap;
+    }
+
+    #controls button{
+        flex-basis: 100%;
+    }
+
+    button + button {
+        margin-top: 5px;
+    }
 }
 
