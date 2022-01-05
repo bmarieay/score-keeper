@@ -72,8 +72,8 @@ label {
     color: #006400;
 }
 
-.disabled{
-    background-color:#789;
+.button:disabled{
+    background-color: lightslategrey;
 }
 
 #controls{
@@ -91,25 +91,21 @@ label {
     transition: all .25s;
 }
 
-.button:hover{
-    background-color: #ada96e;
-}
-
 .button:active {
     background-color: #ada96e;
     box-shadow: 0 5px #666;
     transform: translateY(-4px);
 }
 
-#p1Button{
+.button-one{
     background-color: #2cb82c;
 }
 
-#p2Button{
+.button-two{
     background-color: #2b2b9b;
 }
 
-#reset{
+.button-reset{
     background-color: #b33737;
 }
 

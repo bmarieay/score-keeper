@@ -24,7 +24,9 @@ function updateScores(player, opponent){
         if(player.score === winningScore){
             isGameOver = true;
             player.display.classList.add('green');
+            player.button.disabled = true;
             opponent.display.classList.add('red');
+            opponent.button.disabled = true;
         }
     }
 }
@@ -34,7 +36,8 @@ function reset(){
     for(let p of [p1, p2]){
         p.display.textContent = 0;
         p.score = 0;
-        p.display.classList.remove(...p.display.classList)
+        p.display.classList.remove(...p.display.classList);
+        p.button.disabled = false;
     }
 }
 
@@ -52,4 +55,5 @@ winningScoreVal.addEventListener('input', function(e){
     winningScore = parseInt(winningScoreVal.value);
     reset();
 })
+
 
