@@ -57,6 +57,9 @@ label {
     display: none;
 }
 
+.button-reset{
+    display:none;
+}
 
 .widget, #prompt{
     width: 80%;
@@ -93,6 +96,13 @@ label {
     display: flex;
 }
 
+#p1NameDisplay, #p2NameDisplay{
+    display: inline-block;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    text-transform: uppercase;
+}
+
 #controls button{
     flex: 1 1 0;
     padding: .5em;
@@ -104,7 +114,7 @@ label {
     transition: all .25s;
 }
 
-.button:active {
+.button:active:not(.button:disabled) {
     background-color: #ada96e;
     box-shadow: 0 5px #666;
     transform: translateY(-4px);
@@ -118,7 +128,7 @@ label {
     background-color: #2b2b9b;
 }
 
-.button-reset{
+.button-reset, .button-continue{
     background-color: #b33737;
 }
 

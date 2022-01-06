@@ -24,7 +24,7 @@
     <article class="widget">
         <figure>
             <img src="imgs/pingpong.jpg" alt="a group of people playing ping pong">
-            <figcaption class = "indent" id="description">Ping Pong Score Keeper</p>
+            <figcaption class = "indent" id="description">Ping Pong Score Keeper <span id="p1NameDisplay"></span>vs<span id="p2NameDisplay"></span></p>
         </figure>
         <section>
             <h1 class = "indent"><span id="p1ScoreDisplay">0</span> to <span id="p2ScoreDisplay">0</span></h1>
@@ -41,8 +41,9 @@
                 </select>
             </form>
             <div id="controls">
-                <button class="button button-one" id="p1Button">+1 Player 1</button>
-                <button class="button button-two" id="p2Button">+1 Player 2</button>
+                <button class="button button-one" id="p1Button">+1 <span id="p1ButtonName"></span></button>
+                <button class="button button-two" id="p2Button">+1 <span id="p2ButtonName"></span></button>
+                <button class="button button-continue" id="continue">Continue</button>
                 <button class="button button-reset" id="reset">Reset</button>
             </div>
         </section>
